@@ -19,6 +19,9 @@ jobs:
         run: ./scripts/Verify-Sources.ps1
       - name: Build and pack locally
         run: dotnet pack src/SQLineage.Grammar.PlSql -c Release -o artifacts/feed
+      - name: Verify package license and attribution
+        shell: pwsh
+        run: ./scripts/Verify-PackageLicense.ps1
       - name: Restore independent consumer
         run: dotnet restore tests/Grammar.Consumer --source artifacts/feed --source https://api.nuget.org/v3/index.json
       - name: Consume package on .NET 8

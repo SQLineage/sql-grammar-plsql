@@ -12,8 +12,11 @@ dotnet run --project tests/Grammar.Consumer -c Release --no-restore
 
 CI builds/packs and runs an independent .NET 8 consumer. No publication is configured.
 Existing copyright headers, LICENSE, NOTICE and local synonym modifications remain unchanged.
-See [provenance](PROVENANCE.md), [LICENSE](src/SQLineage.Grammar.PlSql/Grammar/LICENSE.txt) and
-[NOTICE](src/SQLineage.Grammar.PlSql/Grammar/NOTICE.md). No new license is selected.
+The repository is licensed under [Apache License 2.0](LICENSE), as selected by its owner.
+See [provenance](PROVENANCE.md), [NOTICE](NOTICE) and the unchanged
+[upstream LICENSE](src/SQLineage.Grammar.PlSql/Grammar/LICENSE.txt) and
+[upstream NOTICE](src/SQLineage.Grammar.PlSql/Grammar/NOTICE.md).
+Packages declare `Apache-2.0` and include both repository and original upstream notices.
 
 For a deliberate reviewed upstream update, run from the project directory:
 

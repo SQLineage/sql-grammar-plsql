@@ -4,5 +4,9 @@ Copied only `grammar/src/SyncSql.Grammar.PlSql/{Grammar,Generated}` from
 https://github.com/cangelosilima/SyncSQL at bbfb21916c8c9078ef7c4b947f07bd154b112249.
 Source bytes, copyright headers, Apache-2.0 license and NOTICE are preserved unchanged.
 This extraction introduces a self-contained project file; it does not relicense original product code.
+The repository owner selected Apache License 2.0 for this public repository, including its
+project, validation scripts and documentation. No new copyright owner identity is asserted.
+Root LICENSE reproduces the existing Apache text. Root NOTICE preserves the original notice;
+the original files under Grammar remain byte-identical and retain their copyright headers.
 The copied NOTICE's relative product paths are historical source references; see this README for
 the standalone build and regeneration layout.

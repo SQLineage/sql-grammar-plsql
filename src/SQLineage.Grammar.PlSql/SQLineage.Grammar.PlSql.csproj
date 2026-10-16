@@ -9,7 +9,7 @@
     <PackageId>SQLineage.Grammar.PlSql</PackageId>
     <Version>0.0.0-local.1</Version>
     <Description>Local migration preparation of the ANTLR 4.13.1 Oracle SQL and PL/SQL grammar.</Description>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <NuGetAudit>true</NuGetAudit>
     <NuGetAuditMode>all</NuGetAuditMode>
@@ -20,5 +20,7 @@
     <None Include="Grammar/NOTICE.md" Pack="true" PackagePath="NOTICE.md" />
     <None Include="../../README.md" Pack="true" PackagePath="README.md" />
     <None Include="../../PROVENANCE.md" Pack="true" PackagePath="PROVENANCE.md" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="LICENSE" />
+    <None Include="../../NOTICE" Pack="true" PackagePath="NOTICE" />
   </ItemGroup>
 </Project>
