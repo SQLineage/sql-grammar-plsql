@@ -1,0 +1,33 @@
+name: Workflow and dependency quality
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  workflow-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Sonar configuration guards offline
+        shell: pwsh
+        run: ./scripts/Test-SonarConfiguration.ps1
+      - run: >-
+          docker run --rm --volume "$PWD/.github:/repo/.github:ro" --workdir /repo
+          rhysd/actionlint:1.7.7@sha256:887a259a5a534f3c4f36cb02dca341673c6089431057242cdc931e9f133147e9
+          .github/workflows/*.yml
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: low
+          comment-summary-in-pr: never
+  quality-gate:
+    if: always()
+    needs: [workflow-lint, dependency-review]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: re-actors/alls-green@b5b5b37504aa4183270bd3d855c52a67f212be35
+        with:
+          jobs: ${{ toJSON(needs) }}

@@ -1,0 +1,13 @@
+{
+  "approved": false,
+  "service": "",
+  "hostUrl": "",
+  "organization": "",
+  "projectKey": "",
+  "qualityGateName": "",
+  "scannerVersion": "",
+  "pullRequestAnalysisSupported": false,
+  "solution": "src/SQLineage.Grammar.PlSql/SQLineage.Grammar.PlSql.csproj",
+  "coverageSettings": "",
+  "sourceCoverageBuild": false
+}

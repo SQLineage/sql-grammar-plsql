@@ -1,0 +1,51 @@
+# Analysis artifacts only: no security-events write permission, database upload, or publishing.
+name: Security analysis
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  codeql:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [csharp, actions]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.language == 'csharp' && 'manual' || 'none' }}
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+      - name: Verify preserved source bytes
+        shell: pwsh
+        run: ./scripts/Verify-Sources.ps1
+      - name: Build and pack locally
+        run: dotnet pack src/SQLineage.Grammar.PlSql -c Release -o artifacts/feed
+      - name: Verify package license and attribution
+        shell: pwsh
+        run: ./scripts/Verify-PackageLicense.ps1
+      - name: Restore independent consumer
+        run: dotnet restore tests/Grammar.Consumer --source artifacts/feed --source https://api.nuget.org/v3/index.json
+      - name: Consume package on .NET 8
+        run: dotnet run --project tests/Grammar.Consumer -c Release --no-restore
+      - uses: github/codeql-action/analyze@v4
+        with:
+          category: '/language:${{ matrix.language }}'
+          upload: never
+          upload-database: false
+          output: artifacts/codeql
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: codeql-${{ matrix.language }}
+          path: artifacts/codeql/*.sarif
+          if-no-files-found: error
