@@ -20,7 +20,7 @@
     <None Include="Grammar/NOTICE.md" Pack="true" PackagePath="NOTICE.md" />
     <None Include="../../README.md" Pack="true" PackagePath="README.md" />
     <None Include="../../PROVENANCE.md" Pack="true" PackagePath="PROVENANCE.md" />
-    <None Include="../../LICENSE" Pack="true" PackagePath="LICENSE" />
-    <None Include="../../NOTICE" Pack="true" PackagePath="NOTICE" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="" />
+    <None Include="../../NOTICE" Pack="true" PackagePath="" />
   </ItemGroup>
 </Project>
