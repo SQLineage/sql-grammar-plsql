@@ -1,0 +1,46 @@
+{
+  "Source": "https://github.com/cangelosilima/SyncSQL",
+  "Commit": "bbfb21916c8c9078ef7c4b947f07bd154b112249",
+  "Files": [
+    {
+      "Path": "src/SQLineage.Grammar.PlSql/Grammar/LICENSE.txt",
+      "Sha256": "3DDF9BE5C28FE27DAD143A5DC76EEA25222AD1DD68934A047064E56ED2FA40C5"
+    },
+    {
+      "Path": "src/SQLineage.Grammar.PlSql/Grammar/NOTICE.md",
+      "Sha256": "90EC6D4E4385E5FA0020FEDA4F3A97C7AFA1AE8325A5AF02371601DBD16BCCB0"
+    },
+    {
+      "Path": "src/SQLineage.Grammar.PlSql/Grammar/PlSqlLexer.g4",
+      "Sha256": "A75EB63C0BA674E614BFB05275494F41767BEC84D7F7A0D54E49E2D647F7ABC0"
+    },
+    {
+      "Path": "src/SQLineage.Grammar.PlSql/Grammar/PlSqlLexerBase.cs",
+      "Sha256": "B829D93C1501EA2662EC04EAF71091B3CA9D316C8D224FF9B1C36EFAF54097F7"
+    },
+    {
+      "Path": "src/SQLineage.Grammar.PlSql/Grammar/PlSqlParser.g4",
+      "Sha256": "CFACCCB259DFAF8F9CE0890C19A53EB8461FBBB32C864B2EE7F9D20261C8E835"
+    },
+    {
+      "Path": "src/SQLineage.Grammar.PlSql/Grammar/PlSqlParserBase.cs",
+      "Sha256": "08D3DBCA706B94E13FE0577D6C7AD2E5BB1A55D62212B899BD30FA1665B3B371"
+    },
+    {
+      "Path": "src/SQLineage.Grammar.PlSql/Generated/PlSqlLexer.cs",
+      "Sha256": "AE5C2C42448E67E2133FC7FC2ED2CEEC5B5F14D507E371891B5188872324CEF4"
+    },
+    {
+      "Path": "src/SQLineage.Grammar.PlSql/Generated/PlSqlParser.cs",
+      "Sha256": "AF93A5F2490EAA22FA42B7765161E7B6A7862D6AD1A17B6AB5E8D130CF831F5A"
+    },
+    {
+      "Path": "src/SQLineage.Grammar.PlSql/Generated/PlSqlParserBaseVisitor.cs",
+      "Sha256": "B3BB9788625BFCDBA388A926C0FE01CAD9B74914C95880A8B8F1C7E00B1C3F7F"
+    },
+    {
+      "Path": "src/SQLineage.Grammar.PlSql/Generated/PlSqlParserVisitor.cs",
+      "Sha256": "3C169D313A4AE378FCFF8E422806085304F255DB252058EB1985CD342C553E2F"
+    }
+  ]
+}

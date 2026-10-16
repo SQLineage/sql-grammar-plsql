@@ -1,0 +1,47 @@
+# No destination is configured. This required status fails closed before any upload.
+name: SonarQube quality gate
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  sonar-quality-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - name: Require an approved SonarQube destination
+        shell: pwsh
+        run: ./scripts/Run-SonarAnalysis.ps1 -ValidateConfigurationOnly
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+      - name: Verify preserved source bytes
+        shell: pwsh
+        run: ./scripts/Verify-Sources.ps1
+      - name: Build and pack locally
+        run: dotnet pack src/SQLineage.Grammar.PlSql -c Release -o artifacts/feed
+      - name: Verify package license and attribution
+        shell: pwsh
+        run: ./scripts/Verify-PackageLicense.ps1
+      - name: Restore independent consumer
+        run: dotnet restore tests/Grammar.Consumer --source artifacts/feed --source https://api.nuget.org/v3/index.json
+      - name: Consume package on .NET 8
+        run: dotnet run --project tests/Grammar.Consumer -c Release --no-restore
+      - name: Analyze, wait for processing, and enforce SonarQube gate
+        shell: pwsh
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: ./scripts/Run-SonarAnalysis.ps1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sonar-test-results
+          path: TestResults/sonar/
+          if-no-files-found: warn

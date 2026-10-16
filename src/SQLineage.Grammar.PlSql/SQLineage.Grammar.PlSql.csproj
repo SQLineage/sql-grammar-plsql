@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <NoWarn>$(NoWarn);CS3021</NoWarn>
+    <PackageId>SQLineage.Grammar.PlSql</PackageId>
+    <Version>0.0.0-local.1</Version>
+    <Description>Local migration preparation of the ANTLR 4.13.1 Oracle SQL and PL/SQL grammar.</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <NuGetAudit>true</NuGetAudit>
+    <NuGetAuditMode>all</NuGetAuditMode>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.13.1" />
+    <None Include="Grammar/LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
+    <None Include="Grammar/NOTICE.md" Pack="true" PackagePath="NOTICE.md" />
+    <None Include="../../README.md" Pack="true" PackagePath="README.md" />
+    <None Include="../../PROVENANCE.md" Pack="true" PackagePath="PROVENANCE.md" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="" />
+    <None Include="../../NOTICE" Pack="true" PackagePath="" />
+  </ItemGroup>
+</Project>
